@@ -4,6 +4,8 @@
 
 Этот репозиторий **не содержит прикладного кода**. Здесь только Docker Compose, скрипты запуска и документация по окружению. Код приложения живёт в отдельном репозитории [`notes-app`](https://github.com/WeissbergAA/notes-app).
 
+> **Запуск всего стека:** сначала этот репо → затем [QUICKSTART notes-app](https://github.com/WeissbergAA/notes-app/blob/main/docs/QUICKSTART.ru.md)
+
 ---
 
 ## Зачем нужен этот проект
@@ -75,7 +77,23 @@ docker compose version
 
 ## Быстрый старт
 
-### 1. Клонировать репозиторий
+```bash
+git clone git@github.com:WeissbergAA/notes-infra.git
+cd notes-infra
+cp .env.example .env
+./scripts/up.sh
+./scripts/healthcheck.sh
+```
+
+После этого переходи в **notes-app** → `npm run setup` → `npm run dev`.
+
+| Сервис | URL после старта |
+|--------|------------------|
+| PostgreSQL | `localhost:5433` |
+| Kafka | `localhost:9093` |
+| Kafka UI | http://localhost:8080 |
+
+### 1. Клонировать репозиторий (подробно)
 
 ```bash
 git clone git@github.com:WeissbergAA/notes-infra.git
