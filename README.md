@@ -27,7 +27,7 @@ Notes App задуман как **pet-project для изучения DevOps-п�
 | Сервис | Назначение | Порт (по умолчанию) |
 |--------|------------|---------------------|
 | **PostgreSQL 16** | Пользователи, заметки, формы, audit-события | `5433` |
-| **Kafka 3.7 (KRaft)** | Асинхронные доменные события | `9093` |
+| **Kafka 3.8 (KRaft)** | Асинхронные доменные события | `9093` |
 | **Kafka UI** | Web-UI для топиков и сообщений | `8080` |
 | **Elasticsearch 8** | Хранение JSON-логов | `9200` |
 | **Kibana 8** | UI для поиска и анализа логов | `5602` |
@@ -198,7 +198,7 @@ docker exec -it notes-postgres psql -U notes -d notes
 ### Список Kafka-топиков
 
 ```bash
-docker exec notes-kafka kafka-topics.sh --bootstrap-server localhost:9092 --list
+docker exec notes-kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
 ```
 
 ### Kafka UI

@@ -31,7 +31,7 @@ wait_for_postgres() {
 wait_for_kafka() {
   echo "Waiting for Kafka on port ${KAFKA_PORT}..."
   ATTEMPT=0
-  until docker exec notes-kafka kafka-topics.sh --bootstrap-server localhost:9092 --list >/dev/null 2>&1; do
+  until docker exec notes-kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list >/dev/null 2>&1; do
     ATTEMPT=$((ATTEMPT + 1))
     if [[ $ATTEMPT -ge $MAX_ATTEMPTS ]]; then
       echo "Kafka is not ready"
