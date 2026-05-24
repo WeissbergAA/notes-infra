@@ -11,7 +11,7 @@ docker compose -f docker-compose.dev.yml ps
 
 ```bash
 docker logs notes-kafka
-docker exec notes-kafka kafka-topics.sh --bootstrap-server localhost:9092 --list
+docker exec notes-kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
 ```
 
 ## No logs in Kibana
