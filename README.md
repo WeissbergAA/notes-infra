@@ -26,6 +26,7 @@ Notes App задуман как **pet-project для изучения DevOps-п�
 |--------|------------|---------------------|
 | **PostgreSQL 16** | Пользователи, заметки, формы, audit-события | `5433` |
 | **Kafka 3.7 (KRaft)** | Асинхронные доменные события | `9093` |
+| **Kafka UI** | Web-UI для топиков и сообщений | `8080` |
 | **Elasticsearch 8** | Хранение JSON-логов | `9200` |
 | **Kibana 8** | UI для поиска и анализа логов | `5602` |
 | **Filebeat 8** | Сбор логов из Docker-контейнеров | — |
@@ -142,6 +143,7 @@ notes-infra/
 | `POSTGRES_DB` | Имя базы | `notes` |
 | `POSTGRES_PORT` | Порт на хосте | `5433` |
 | `KAFKA_PORT` | Порт Kafka на хосте | `9093` |
+| `KAFKA_UI_PORT` | Порт Kafka UI | `8080` |
 | `ELASTICSEARCH_PORT` | Порт Elasticsearch | `9200` |
 | `KIBANA_PORT` | Порт Kibana | `5602` |
 
@@ -180,6 +182,10 @@ docker exec -it notes-postgres psql -U notes -d notes
 ```bash
 docker exec notes-kafka kafka-topics.sh --bootstrap-server localhost:9092 --list
 ```
+
+### Kafka UI
+
+После `./scripts/up.sh` открой http://localhost:8080 — просмотр топиков, сообщений и consumer groups без CLI.
 
 Ожидаемые топики (создаются автоматически при первой публикации из API):
 
